@@ -29,7 +29,19 @@ var searchHistoryList = function(cityName) {
 
 };
 
+var loadSearchHistory = function() {
+    var savedSearchHistory = localStorage.getItem("savedSearches");
 
+    if (!savedSearchHistory) {
+        return false;
+    }
+
+    savedSearchHistory = JSON.parse(savedSearchHistory);
+
+    for (var i = 0; i < savedSearchHistory.length; i++) {
+        searchHistoryList(savedSearchHistory[i]);
+    }
+};
 
 var currentWeatherSection = function(cityName) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
@@ -57,6 +69,7 @@ var currentWeatherSection = function(cityName) {
                     var currentIcon = $("#current-weather-icon");
                     currentIcon.addClass("current-weather-icon");
                     var currentIconCode = response.current.weather[0].icon;
+                    currentIcon.attr("src", `https://openweathermap.org/img/wn/${currentIconCode}@2x.png`);
 
 
 
