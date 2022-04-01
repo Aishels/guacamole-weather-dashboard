@@ -75,6 +75,10 @@ var currentWeatherSection = function(cityName) {
                     currentTemperature.text("Temperature: " + response.current.temp + " \u00B0F");
                     console.log(response.current.temp);
 
+                    var currentHumidity = $("#current-humidity");
+                    currentHumidity.text("Humidity: " + response.current.humidity + "%");
+                    console.log(response.current.humidity);
+
 
 
                     // if (response.current.uvi <= 2) {
