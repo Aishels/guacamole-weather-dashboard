@@ -22,3 +22,4 @@ var cityList = [];
 var currentDate = moment().format('L');
 $("#current-date").text("(" + currentDate +")");
     console.log(currentDate);
+
