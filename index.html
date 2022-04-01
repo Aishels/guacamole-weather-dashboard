@@ -3,45 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Weather Dashboard</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 </head>
-<body>
 
-    <div class="container-fluid">
-        <div class="row navbar navbar-dark bg-dark">
-            <div class="col-12 text-center">
-                <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
-            </div>
+<body class="body">
+    <header class="header">
+        <div class="h1-container d-flex translate-middle bg-dark justify-content-center">
+            <h1 class="h1 text-light">Weather Dashboard</h1>
         </div>
-        <div class="row content-row">
-            <div class="col-12 col-md-3 bg-light pt-3">
-                <h5>Search for a city:</h5>
-                <form>
-                    <div class="form-group input-group">
-                        <input type="text" class="form-control" id="search-city" placeholder="Enter City Here">
-                        <div class="input-group-append">
-                            <button class="btn btn-info" type="button" id="search-city-button">
-                                <i class="fa fa-search"></i>
-                            </button>
+    </header>
+
+    <main class="main">
+        <div class="container-fluid">
+            <!-- col 1-->
+            <div class="col-sm-4 bg-light p-0">
+                <!-- search form -->
+                <div class="form-container">
+                    <form id="search-form">
+                        <!-- input search label -->
+                        <div class="row m-0">
+                            <label for="search-input" class="search-label m-0 text-dark">Search for a City:</label>
                         </div>
-                    </div>
-                </form>
-                <!-- search history here -->
-                <div class="card">
-                    <ul class="list-group list-group-flush" id="search-history-list"></ul>
+                        <!-- input search label and button -->
+                        <div class="row m-0">
+                            <div class="col-sm-8 p-0 my-auto">
+                                <input type="text" id="search-input" name="search-input" class="search-input rounded">
+                            </div>
+                            <div class="col-sm-4 p-0">
+                                <button type="submit" class="btn bg-primary rounded search-button">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-
+                <!-- search history -->
+                <div id="search-history-container" class="row m-0 search-history-container">
+                    
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+ 
 Search for a city button
 
 Clear history button
