@@ -79,6 +79,16 @@ var currentWeatherSection = function(cityName) {
                     currentHumidity.text("Humidity: " + response.current.humidity + "%");
                     console.log(response.current.humidity);
 
+                    var currentWindSpeed = $("current-wind-speed");
+                    currentWindSpeed.text("Wind Speed: " + response.current.wind_speed + " MPH");
+                    console.log(response.current.wind_speed);
+
+                    var currentUvIndex = $("#current-uv-index");
+                    currentUvIndex.text("UV Index: ");
+                    var currentNumber = $("#current-number");
+                    currentNumber.text(response.current.uvi);
+                    console.log(response.current.uvi);
+
 
 
                     // if (response.current.uvi <= 2) {
