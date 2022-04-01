@@ -60,7 +60,7 @@ var currentWeatherSection = function(cityName) {
                 .then(function(response){
                     searchHistoryList(cityName);
                     
-                    var currentWeatherSection = $("#current-weather-container");
+                    var currentWeatherContainer = $("#current-weather-container");
                     currentWeatherContainer.addClass("current-weather-container");
 
                     var currentTitle = $("current-title");
@@ -71,15 +71,19 @@ var currentWeatherSection = function(cityName) {
                     var currentIconCode = response.current.weather[0].icon;
                     currentIcon.attr("src", `https://openweathermap.org/img/wn/${currentIconCode}@2x.png`);
 
+                    var currentTemperature = $("#current-temperature");
+                    currentTemperature.text("Temperature: " + response.current.temp + " \u00B0F");
+                    console.log(response.current.temp);
 
 
-                    if (response.currentuvi <= 2) {
-                        currentNumber.addClass("favorable");
-                    } else if (response.current.uvi >= 3 && response.current.uvi <= 7) {
-                        currentNumber.addClass("moderate");
-                    } else {
-                        currentNumber.addClass("severe");
-                    }
+
+                    // if (response.current.uvi <= 2) {
+                    //     currentNumber.addClass("favorable");
+                    // } else if (response.current.uvi >= 3 && response.current.uvi <= 7) {
+                    //     currentNumber.addClass("moderate");
+                    // } else {
+                    //     currentNumber.addClass("severe");
+                    // }
                     
                 })
         })
@@ -87,8 +91,8 @@ var currentWeatherSection = function(cityName) {
             $("search-input").val("");
             
             alert("We could not find the city you searched for. Try searching for a valid city.");
-        })
-}
+        });
+};
 
 
 
@@ -103,7 +107,7 @@ $("#search-form").on("submit", function() {
         event.preventDefault();
     } else {
         currentWeatherSection(cityName);
-        fiveDayForecastSection(cityName);
+        // fiveDayForecastSection(cityName);
     }
 });
 
