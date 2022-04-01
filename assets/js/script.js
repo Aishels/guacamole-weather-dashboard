@@ -89,8 +89,6 @@ var currentWeatherSection = function(cityName) {
                     currentNumber.text(response.current.uvi);
                     console.log(response.current.uvi);
 
-
-
                     // if (response.current.uvi <= 2) {
                     //     currentNumber.addClass("favorable");
                     // } else if (response.current.uvi >= 3 && response.current.uvi <= 7) {
