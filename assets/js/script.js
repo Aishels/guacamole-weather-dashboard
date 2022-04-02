@@ -150,19 +150,18 @@ var fiveDayForecastSection = function(cityName) {
 }
 
 
-
-
 $("#search-form").on("submit", function() {
     event.preventDefault();
     
     var cityName = $("#search-input").val();
 
     if (cityName === "" || cityName == null) {
+
         alert("Please enter name of city.");
         event.preventDefault();
     } else {
         currentWeatherSection(cityName);
-        // fiveDayForecastSection(cityName);
+        fiveDayForecastSection(cityName);
     }
 });
 
